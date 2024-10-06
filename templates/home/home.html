@@ -1,0 +1,60 @@
+{%extends "base.html"%}
+{%block content%}
+
+<header>
+        <div class="nav">
+            <h1>Crowdfunding</h1>
+            <div class="search-container">
+                <select>
+                    <option>Categories</option>
+                </select>
+                <input type="text" placeholder="Searching..." />
+            </div>
+            <div class="auth-buttons">
+                <button>Sign Up</button>
+                <button>Sign In</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner">
+        <img src="Image.jpg" alt="Flood in Bangladesh" />
+        <div class="banner-text">
+            <h2>Flood in Bangladesh</h2>
+            <p>Click to donate Now</p>
+        </div>
+        <div class="banner-stats">
+            <div>1000+<br />Donors</div>
+            <div>240+<br />Projects</div>
+            <div>150+<br />Reviews</div>
+        </div>
+    </section>
+
+    <section class="projects-section">
+        <div class="latest-projects">
+            <h3>Latest Projects</h3>
+            <ul>
+                <li>Flood in Bangladesh</li>
+                <li>Save a Child</li>
+                <li>Wildfire</li>
+                <li>School in Africa</li>
+            </ul>
+            <button>See all</button>
+        </div>
+
+        <div class="featured-projects">
+            <h3>Featured Projects</h3>
+            <ul>
+                <li>Plant a Tree</li>
+                <li>Stray Animal</li>
+                <li>Cancer Patient</li>
+                <li>Build a House</li>
+            </ul>
+            <button>See all</button>
+        </div>
+    </section>
+
+    <footer>
+        <button>Create your own Project</button>
+    </footer>
+{%endblock%}
