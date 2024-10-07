@@ -20,5 +20,7 @@ from home import views as mamun
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',mamun.Home,name='Home')
+    path('',mamun.Home,name='Home'),
+    path('Signin', mamun.Signin,name='Signin'),
+    path('Signup', mamun.Signup,name='Signup'),
 ]
