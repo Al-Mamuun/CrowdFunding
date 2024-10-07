@@ -6,7 +6,8 @@ body {
 .navbar {
     padding: 15px;
     background-color: #f8f9fa;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(9, 9, 9, 0.821);
     width: 97%;
     margin: 0 auto;
     border-radius: 15px;
