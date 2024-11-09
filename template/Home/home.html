@@ -1,0 +1,98 @@
+{% include 'base.html'%}
+
+{% block content%}
+
+<br><br><br><br><br>
+        <div class="carousel-item">
+            <img src="image/education.jpg" class="d-block w-100" alt="Education Project">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Support Education</h5>
+                <p>Help provide resources for children</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="image/healthcare.jpg" class="d-block w-100" alt="Medical Aid">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Medical Aid</h5>
+                <p>Donate to save lives</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+</div>
+
+<!-- Container for the image and statistics section -->
+<div class="hero-section">
+    <!-- Background Image -->
+    <div class="hero-image">
+        <div class="overlay-text">
+            <h1>Flood in Bangladesh</h1>
+            <p>Click to donate now</p>
+        </div>
+    </div>
+
+    <!-- Overlapping Statistics Section -->
+    <div class="stats-section">
+        <div class="stats">
+            <div class="stat-item">
+                <h2>1000+</h2>
+                <p>Donors</p>
+                <span>Everyone is welcome to donate</span>
+            </div>
+            <div class="stat-item">
+                <h2>240+</h2>
+                <p>Projects</p>
+                <span>Various Projects waiting for your help</span>
+            </div>
+            <div class="stat-item">
+                <h2>150+</h2>
+                <p>Reviews</p>
+                <span>Feel free to give reviews</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Projects Section -->
+<div class="container mt-5">
+    <div class="row">
+        <!-- Latest Projects -->
+        <div class="col-md-6">
+            <div class="bg-danger text-white p-4">
+                <h3>Latest Projects</h3>
+                <ul>
+                    <li>Flood in Bangladesh</li>
+                    <li>Save a Child</li>
+                    <li>Wildfire Relief</li>
+                    <li>School in Africa</li>
+                </ul>
+                <a href="#" class="btn btn-light">See all</a>
+            </div>
+        </div>
+        <!-- Featured Projects -->
+        <div class="col-md-6">
+            <div class="bg-warning text-white p-4">
+                <h3>Featured Projects</h3>
+                <ul>
+                    <li>Plant a Tree</li>
+                    <li>Support Stray Animals</li>
+                    <li>Cancer Patient Support</li>
+                    <li>Build a House</li>
+                </ul>
+                <a href="#" class="btn btn-light">See all</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="text-center my-5">
+    <a href="{% url 'project_list' %}" class="btn btn-gradient">Create your own Project</a>
+</div>
+
+{%endblock%}

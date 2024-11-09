@@ -1,0 +1,112 @@
+.hero-image {
+  height: 50%; /* Full height of the hero section */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('images/donation.jpeg'); /* Replace with your image path */
+  background-size: cover; /* Ensure the image covers the section */
+  background-position: center; /* Center the image */
+  position: relative; /* Allow positioning of overlay text */
+}
+
+
+.overlay-text {
+  color: white;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6); /* Darker transparent overlay for better contrast */
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 2; /* Ensure the text appears above the image */
+}
+
+
+/* Background image takes full height */
+.hero-image {
+  height: 50%; /* Full height of the hero section */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Overlay text inside the image */
+.overlay-text {
+  color: white;
+  text-align: center;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Darker transparent overlay for better contrast */
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 2; /* Ensure the text appears above the image */
+}
+
+/* Stats Section under the image */
+.stats-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px; /* Adjust this value as necessary */
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 20px;
+  width: 80%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.stat-item h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #000;
+}
+
+.stat-item p {
+  font-size: 18px;
+  color: #707070;
+}
+
+.stat-item span {
+  font-size: 14px;
+  color: #707070;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-item {
+    margin-bottom: 20px;
+  }
+
+  .overlay-text h1 {
+    font-size: 28px; /* Reduce font size on smaller screens */
+  }
+
+  .overlay-text p {
+    font-size: 16px; /* Reduce font size on smaller screens */
+  }
+}
+
+/* Call to Action Button */
+.btn-gradient {
+  background: linear-gradient(to right, #ff7ce2, #ff8833);
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  text-transform: uppercase;
+  transition: transform 0.3s; /* Button hover effect */
+}
+
+.btn-gradient:hover {
+  transform: scale(1.05); /* Slight scaling on hover */
+}

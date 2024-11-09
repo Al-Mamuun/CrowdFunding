@@ -1,0 +1,16 @@
+{% include 'base.html' %} {% load static %} {% block content %}
+<div class="container">
+  <h2>Welcome, {{ request.user.first_name }} {{ request.user.last_name }}</h2>
+  <p>Email: {{ request.user.email }}</p>
+
+  <!-- User Profile Details -->
+  <h3>Your Profile</h3>
+  <ul>
+    <li>Mobile: {{ user.profile.mobile }}</li>
+    <li>Country: {{ user.profile.country }}</li>
+    <li>Birthday: {{ user.profile.birthday }}</li>
+  </ul>
+
+  <a href="{% url 'signout' %}" class="btn btn-danger">Sign Out</a>
+</div>
+{% endblock %}
