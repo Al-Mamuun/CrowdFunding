@@ -71,3 +71,18 @@ class Profile(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name} - {self.user.username}"
 
+class FeatureProject(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    goalAmount = models.FloatField()
+    createdAt = models.DateField(auto_now_add=True,blank=True, null=True)
+    startDate = models.DateField(blank=True, null=True)
+    endDate = models.DateField(blank=True, null=True)
+    select_choice = (
+        ('OnGoing', 'OnGoing'),
+        ('Coming Soon', 'Coming Soon'),
+    )
+    status = models.CharField(max_length=50,choices=select_choice)
+
+    def __str__(self):
+        return self.title

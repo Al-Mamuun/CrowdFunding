@@ -3,13 +3,59 @@
 {% block title %}Project List{% endblock %}
 
 {% block content %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        li {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        li:hover {
+            transform: scale(1.02);
+        }
+
+        .no-projects {
+            color: #777;
+            font-style: italic;
+        }
+    </style>
+
     <br><br><br><br><br>
-    <h2>Projects</h2>
+    <h2>PROJECTS</h2>
     <ul>
         {% for project in projects %}
-            <li>{{ project.title }} - Goal: {{ project.goal_amount }} - Collected: {{ project.collected_amount }} - Status: {{ project.status }}</li>
+            <li>
+                <strong>{{ project.title }}</strong><br>
+                Goal: {{ project.goalAmount }}<br>
+                Collected: {{ project.collectedAmount }}<br>
+                Status: {{ project.status }}
+            </li>
         {% empty %}
-            <li>No projects available.</li>
+            <li class="no-projects">No projects available.</li>
         {% endfor %}
     </ul>
 {% endblock %}
+

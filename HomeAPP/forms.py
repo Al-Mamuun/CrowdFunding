@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
 from .models import Profile
-
+from django.forms import ModelForm
+from .models import *
 
 class SignUpForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
@@ -24,3 +25,9 @@ class SignUpForm(forms.ModelForm):
                 last_name=self.cleaned_data['last_name']
             )
         return user
+
+class ProjectForm(ModelForm):
+    class Meta:
+        model = Project
+        fields = '__all__'
+        

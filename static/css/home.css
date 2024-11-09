@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('images/donation.jpeg'); /* Replace with your image path */
+  background-image: url("{% static 'images/donation.jpeg' %}");/* Replace with your image path */
   background-size: cover; /* Ensure the image covers the section */
   background-position: center; /* Center the image */
   position: relative; /* Allow positioning of overlay text */

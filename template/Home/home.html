@@ -71,7 +71,7 @@
                     <li>Wildfire Relief</li>
                     <li>School in Africa</li>
                 </ul>
-                <a href="#" class="btn btn-light">See all</a>
+                <a href="{% url 'project_list' %}" class="btn btn-light">See all</a>
             </div>
         </div>
         <!-- Featured Projects -->
@@ -84,7 +84,7 @@
                     <li>Cancer Patient Support</li>
                     <li>Build a House</li>
                 </ul>
-                <a href="#" class="btn btn-light">See all</a>
+                <a href="{% url 'new' %}" class="btn btn-light">See all</a>
             </div>
         </div>
     </div>
@@ -92,7 +92,7 @@
 
 <!-- Call to Action -->
 <div class="text-center my-5">
-    <a href="{% url 'project_list' %}" class="btn btn-gradient">Create your own Project</a>
+    <a href="{% url 'upload' %}" class="btn btn-gradient">Create your own Project</a>
 </div>
 
 {%endblock%}

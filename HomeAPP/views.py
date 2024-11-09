@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from .models import Profile
-
 from .forms import SignUpForm
 from django.contrib.auth import login
+from .forms import *
 
 def signup(request):
     if request.method == "POST":
@@ -54,6 +54,9 @@ def project_list(request):
     projects = Project.objects.all()
     return render(request, 'Project/project_list.html', {'projects': projects})
 
+def featureprojectlist(request):
+    projects = FeatureProject.objects.all()
+    return render(request, 'Project/featureprojectlist.html', {'projects': projects})
 
 def signin(request):
     if request.method == "POST":
@@ -77,4 +80,15 @@ def profile(request):
         profile = Profile.objects.get(user=request.user)
         return render(request, 'profile/profile.html', {'profile': profile})
     return redirect('signin')  # Redirect to sign-in if not authenticated
+
+def Upload_project(request):
+    form = ProjectForm()
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('project_list')
+    else:
+        form = ProjectForm()
+    return render(request, 'project/upload_project.html', {'form': form})
 
