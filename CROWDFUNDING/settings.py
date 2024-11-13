@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-MY_APPS = ['HomeAPP','DropDown',]
+MY_APPS = ['HomeAPP','DropDown','SignInSignUp',]
 
 INSTALLED_APPS += MY_APPS
 

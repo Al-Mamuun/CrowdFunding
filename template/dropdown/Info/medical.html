@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block title %}Learn More About Medical{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 100px;">
+  <div class="row">
+    <div class="col-12 text-center mb-5">
+      <h1 class="display-4">Learn More About Medical Advances</h1>
+      <p class="lead">Stay informed about the latest advancements in the medical and healthcare industries.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Medical Research</h2>
+      <p>Explore breakthroughs in medical research, including disease prevention, new treatments, and medical technologies.</p>
+      <img src="{% static 'images/medical_research.jpg' %}" alt="Medical Research" width="500">
+    </div>
+    <div class="col-md-6">
+      <h2>Healthcare Innovations</h2>
+      <p>Learn about the latest innovations in healthcare systems, from telemedicine to personalized medicine.</p>
+      <img src="{% static 'images/healthcare_innovation.jpg' %}" alt="Healthcare Innovation" width="500">
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12 text-center">
+      <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

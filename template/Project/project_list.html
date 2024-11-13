@@ -41,6 +41,17 @@
             color: #777;
             font-style: italic;
         }
+
+        .project-image {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .project-details {
+            text-align: left;
+            font-size: 16px;
+        }
     </style>
 
     <br><br><br><br><br>
@@ -48,14 +59,16 @@
     <ul>
         {% for project in projects %}
             <li>
-                <strong>{{ project.title }}</strong><br>
-                Goal: {{ project.goalAmount }}<br>
-                Collected: {{ project.collectedAmount }}<br>
-                Status: {{ project.status }}
+                <img src="{{ project.image.url }}" alt="PROJECT" class="project-image">
+                <div class="project-details">
+                    <strong>{{ project.title }}</strong><br>
+                    Goal: ${{ project.goalAmount }}<br>
+                    Collected: ${{ project.collectedAmount }}<br>
+                    Status: {{ project.status }}
+                </div>
             </li>
         {% empty %}
             <li class="no-projects">No projects available.</li>
         {% endfor %}
     </ul>
 {% endblock %}
-

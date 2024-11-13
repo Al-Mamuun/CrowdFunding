@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block content %}
+<div class="container" style="padding-top: 100px;">
+  <!-- Business Section -->
+  <div class="row">
+    <div class="col-12 text-center mb-5">
+      <h1 class="display-4">Natural Disaster</h1>
+      <p class="lead">A number of disasters are very common in Bangladesh..</p>
+    </div>
+  </div>
+
+  <!-- New Market Section -->
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Natural Disaster</h2>
+      <p>A number of disasters are very common in Bangladesh.</p>
+      <a href="{%url 'disasterInfo'%}" class="btn btn-primary mt-3">Learn More</a>
+    </div>
+    <div class="col-md-6">
+      <img src="{% static 'images/disaster.jpg' %}" alt="Natural_Disaster Image" width = '800'>
+    </div>
+  </div>
+</div> 
+{% endblock %}

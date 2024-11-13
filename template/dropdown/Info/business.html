@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block title %}Learn More{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 100px;">
+  <div class="row">
+    <div class="col-12 text-center mb-5">
+      <h1 class="display-4">Learn More About Emerging Markets</h1>
+      <p class="lead">Delve deeper into the world of new business opportunities, emerging trends, and innovative markets.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Opportunities</h2>
+      <p>Explore new market trends and the business opportunities they offer in various industries.</p>
+      <img src="{% static 'images/opportunity.jpeg' %}" alt="Opportunity Image" width="500">
+    </div>
+    <div class="col-md-6">
+      <h2>Innovation</h2>
+      <p>Discover the innovative strategies businesses are adopting to thrive in evolving markets.</p>
+      <img src="{% static 'images/innovation.jpg' %}" alt="Innovation Image" width="500">
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12 text-center">
+      <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

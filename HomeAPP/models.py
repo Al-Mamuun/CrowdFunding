@@ -35,6 +35,7 @@ class Project(models.Model):
     startDate = models.DateField()
     endDate = models.DateField()
     status = models.CharField(max_length=50)
+    image=models.ImageField(upload_to='Projectlist',default='donation.jpeg')
 
     def __str__(self):
         return self.title

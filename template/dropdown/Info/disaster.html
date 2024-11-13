@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block title %}Learn More About Disaster Management{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 100px;">
+  <div class="row">
+    <div class="col-12 text-center mb-5">
+      <h1 class="display-4">Learn More About Disaster Management</h1>
+      <p class="lead">Discover strategies, solutions, and resources for effective disaster response and management.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Disaster Preparedness</h2>
+      <p>Understand the importance of disaster preparedness and how communities can take proactive steps to mitigate risks.</p>
+      <img src="{% static 'images/disaster_preparedness.jpg' %}" alt="Disaster Preparedness" width="500">
+    </div>
+    <div class="col-md-6">
+      <h2>Disaster Relief Efforts</h2>
+      <p>Learn about the ongoing disaster relief efforts around the world and how they provide critical support to affected areas.</p>
+      <img src="{% static 'images/disaster_relief.jpg' %}" alt="Disaster Relief" width="500">
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12 text-center">
+      <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

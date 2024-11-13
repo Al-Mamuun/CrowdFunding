@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %}Learn More About Education{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 100px;">
+  <div class="row">
+    <div class="col-12 text-center mb-5">
+      <h1 class="display-4">Learn More About Education</h1>
+      <p class="lead">Explore the latest trends, opportunities, and innovations in the education sector.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Opportunities</h2>
+      <p>Learn about the various opportunities available in modern education, including online learning and digital classrooms.</p>
+      <img src="{% static 'images/education_opportunity.jpg' %}" alt="Education Opportunity" width="500">
+    </div>
+    <div class="col-md-6">
+      <h2>Innovation</h2>
+      <p>Discover the innovative teaching methods and technologies transforming education worldwide.</p>
+      <img src="{% static 'images/education_innovation.webp' %}" alt="Education Innovation" width="500">
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12 text-center">
+      <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

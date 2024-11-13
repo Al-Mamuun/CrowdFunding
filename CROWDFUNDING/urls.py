@@ -1,3 +1,5 @@
+from .import settings
+from django .conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from HomeAPP import views as M
@@ -18,4 +20,10 @@ urlpatterns = [
     path('edu/',D.education,name='education'),
     path('bus/',D.bussiness,name='bussiness'),
     path('medical/',D.medical,name='medical'),
-]
+    path('disaster/',D.disaster,name='disaster'),
+    path('education/',D.education_info,name='educationInfo'),
+    path('business/',D.bussiness_info,name='bussinessInfo'),
+    path('medicall/',D.medical_info,name='medicalInfo'),
+    path('disasters/',D.disaster_info,name='disasterInfo'),
+
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
