@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}Project List{% endblock %}
+
+{% block content %}
+   
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        text-align: center;
+        overflow-y: auto;
+    }
+    .container {
+        margin-top: 100px;
+    }
+
+    h2 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .project-container {
+        max-height: 70vh; 
+        padding: 0 10px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    ul li.List {
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+    }
+
+    ul li.List:hover {
+        transform: scale(1.02);
+    }
+
+    .no-projects {
+        color: #777;
+        font-style: italic;
+    }
+
+    .project-image {
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .project-details {
+        text-align: left;
+        font-size: 16px;
+    }
+</style>
+
+<div class="container">
+    <h2>PROJECTS</h2>
+    <div class="project-container">
+        <ul>
+            {% for project in projects %}
+                <li class="List"> 
+                    <img src="{{ project.image.url }}" alt="PROJECT" class="project-image">
+                    <div class="project-details">
+                        <strong>
+                            <a href="{% url 'details' project.id %}">{{ project.title }}</a>
+                        </strong><br>
+                        Goal: ${{ project.goalAmount }}<br>
+                        Collected: ${{ project.collectedAmount }}<br>
+                        Status: {{ project.status }}
+                        Create Date: {{ project.createdAt}}
+                    </div>
+                </li>
+            {% empty %}
+                <li class="no-projects">No projects available.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

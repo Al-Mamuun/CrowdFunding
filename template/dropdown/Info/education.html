@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Learn More About Education{% endblock %}
+
+{% block content %}
+  <div class="container" style="padding-top: 100px;">
+    <!-- Heading Section -->
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h1 class="display-4 font-weight-bold">Learn More About Education</h1>
+        <p class="lead text-muted">Explore the latest trends, opportunities, and innovations in the education sector.</p>
+      </div>
+    </div>
+
+    <!-- Opportunities & Innovation Section -->
+    <div class="row">
+      <!-- Opportunities Column -->
+      <div class="col-md-6 mb-4">
+        <h2 class="h3">Opportunities</h2>
+        <p>Learn about the various opportunities available in modern education, including online learning and digital classrooms.</p>
+        <!-- Optimized Image -->
+        <div class="image-container">
+          <img src="{% static 'images/education_opportunity.jpg' %}" alt="Education Opportunity" class="img-fluid rounded shadow custom-img">
+        </div>
+      </div>
+
+      <!-- Innovation Column -->
+      <div class="col-md-6 mb-4">
+        <h2 class="h3">Innovation</h2>
+        <p>Discover the innovative teaching methods and technologies transforming education worldwide.</p>
+        <!-- Optimized Image -->
+        <div class="image-container">
+          <img src="{% static 'images/education_innovation.webp' %}" alt="Education Innovation" class="img-fluid rounded shadow custom-img">
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Home Button -->
+    <div class="row mt-4">
+      <div class="col-12 text-center">
+        <a href="{% url 'home' %}" class="btn btn-secondary btn-lg">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom CSS to Style the Images -->
+  <style>
+    /* Custom CSS for optimized image size and design */
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      height: 300px; /* Fixed height for all images */
+    }
+
+    .custom-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures images are cropped and scaled to fit the container */
+      border-radius: 15px; /* Rounded corners for images */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+    }
+
+    /* Hover effect for images */
+    .custom-img:hover {
+      transform: scale(1.05); /* Slight zoom effect on hover */
+    }
+  </style>
+{% endblock %}

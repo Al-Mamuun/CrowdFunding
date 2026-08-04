@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+  body{
+    text-align: center;
+    margin-top: 200px;
+  }
+
+  .thank-you-container {
+    margin-top: 10vh;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(to right, #ff7ce2, #28a745);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    max-width: 80%; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .thank-you-container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .thank-you-container p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: #f4f4f4;
+    line-height: 1.5;
+  }
+
+  .celebration-icon {
+    font-size: 5rem;
+    color: #ffcc00;
+    margin-bottom: 1.5rem;
+    animation: bounce 1.5s ease-in-out infinite;
+  }
+
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+ 
+  .btn-celebrate {
+    background: #ff7ce2;
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .btn-celebrate:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 124, 226, 0.6);
+    background-color: #ff6490;
+  }
+
+
+  .confetti {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: url('https://cdn.pixabay.com/photo/2018/12/18/11/51/confetti-3876065_960_720.png') repeat;
+    background-size: contain;
+    pointer-events: none;
+    animation: confetti 3s infinite;
+  }
+
+  @keyframes confetti {
+    0% {
+      top: -10%;
+      left: 50%;
+    }
+    50% {
+      top: 50%;
+      left: 30%;
+    }
+    100% {
+      top: 100%;
+      left: 70%;
+    }
+  }
+
+  
+  .footer-message {
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    font-weight: 600;
+    color: #f4f4f4;
+    opacity: 0.8;
+  }
+
+  .footer-message span {
+    font-weight: 700;
+    color: #ff7ce2;
+  }
+
+</style>
+
+<!-- Thank You Page Content -->
+<div class="container my-5">
+  <div class="thank-you-container">
+    <div class="confetti"></div> 
+
+    <h1>You're Amazing!</h1>
+    <p>Thank you for your incredible generosity. Your donation will make a huge impact in the lives of those who need it most. Together, we are making the world a better place.</p>
+    
+    <a href="{% url 'home' %}" class="btn-celebrate">Return to Home</a>
+
+    <p class="footer-message">With gratitude from our team at <span>Intelligence Hub</span>. 💚</p>
+  </div>
+</div>
+
+{% endblock %}

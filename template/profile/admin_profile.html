@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block content %}
+
+<style>
+  body {
+    background-color: #f8f9fa;
+    padding: 20px;
+  }
+</style>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Admin Dashboard</h1>
+    
+    <!-- Admin Dashboard Content -->
+    <div class="text-center">
+      <p>Welcome to the Admin Dashboard.</p>
+      <p>You can manage the system settings, users, and data from here.</p>
+      
+      <a href="/admin/" class="btn btn-primary btn-lg">Go to Django Admin Panel</a>
+    </div>
+  </div>
+{% endblock %}

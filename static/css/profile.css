@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin-top: 70px; 
+    overflow-y: auto; 
+}
+
+.navbar {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(9, 9, 9, 0.821);
+    width: 97%;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+.user-dropdown {
+    display: flex;
+    align-items: center;
+}
+
+.user-image {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.user-name {
+    font-weight: bold;
+    color: #000;
+    margin-right: 10px;
+}
+
+.profile-container {
+    margin-top: 50px;
+}
+
+.profile-card {
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+}
+
+.profile-image {
+    border-radius: 50%; 
+    width: 150px; 
+    height: 150px; 
+    object-fit: cover; 
+    margin-bottom: 20px; 
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.profile-email {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    font-size: 24px;
+    margin: 10px;
+    color: #ff8833;
+}
+
+.social-link:hover {
+    color: #ff0097;
+}
+
+.profile-actions a {
+    border-radius: 15px;
+    font-size: 16px;
+}
+
+.user-details table {
+    background-color: #e8f0fe;
+    border-radius: 10px;
+}
+
+.table th, .table td {
+    text-align: left;
+}
+
+.table th {
+    background-color: #b3d7ff;
+}
+
+.table td a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.table td a:hover {
+    text-decoration: underline;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 123, 255, 0.05);
+}

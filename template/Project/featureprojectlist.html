@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% load static %} {% block content%}
+<style>
+  .feature-title{
+    margin-top: 100px;
+  }
+</style>
+
+<div class="container my-5">
+    <h1 class="text-center mb-4 feature-title">Feature Project List</h1>
+
+    <!-- Product Table -->
+    <table class="table table-striped table-hover">
+      <thead class="table-success">
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">GoalAmount</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in projects %}
+        <tr>
+          <td>
+            <a href="{% url 'feature_project_details' i.id%}">{{ i.title}}</a>
+          </td>
+          <td>${{ i.description }}</td>
+          <td>{{ i.goalAmount }}</td>
+          <td>{{i.status}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="{% url 'home'%}" class="btn btn-info btn-sm">Back To Home</a>
+  {% endblock %}

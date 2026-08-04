@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<style>
+  body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fc;
+      color: #333;
+      margin-top: 100px;
+  }
+
+  .about-us-container {
+      max-width: 1200px;
+      margin: 50px auto;
+      text-align: center;
+      padding: 20px;
+  }
+
+  .about-us-header h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #444;
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+  }
+
+  .about-us-header h1::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 5px;
+      background-color: #007bff;
+      margin: 10px auto 0;
+  }
+
+  .about-us-header p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 40px;
+  }
+
+  .about-details {
+      margin: 20px 0 50px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #555;
+  }
+
+  .divider {
+      height: 5px;
+      background: linear-gradient(to right, #007bff, #6c757d);
+      margin: 30px 0;
+      border-radius: 5px;
+  }
+
+  .team {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      gap: 10px;
+  }
+
+  .team-member {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      position: relative;
+  }
+
+  .team-member:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .team-member::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, #007bff, #6c757d);
+  }
+
+  .team-member img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+  }
+
+  .team-member h2 {
+      font-size: 1.8rem;
+      margin: 15px 0 5px;
+      color: #007bff;
+  }
+
+  .team-member h4 {
+      font-size: 1.1rem;
+      margin: 5px 0;
+      color: #555;
+      font-weight: 500;
+  }
+
+  .team-member p {
+      padding: 0 20px 20px;
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+  }
+
+  .team-member .social-icons {
+      margin: 10px 0 20px;
+  }
+
+  .team-member .social-icons a {
+      color: #007bff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: color 0.3s ease-in-out;
+  }
+
+  .team-member .social-icons a:hover {
+      color: #0056b3;
+  }
+
+
+  .cta-banner {
+    background: linear-gradient(to right, #000, #444);
+    color: #eee;
+    padding: 30px 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 50px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cta-banner h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.cta-banner p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.cta-banner a {
+    text-decoration: none;
+    color: #000;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.2);
+}
+
+.cta-banner a:hover {
+    background: #222;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4);
+}
+
+</style>
+
+<div class="about-us-container">
+    <div class="about-us-header">
+        <h1>About Us</h1>
+        <p>Discover who we are and why we’re passionate about our mission.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="about-details">
+        <p>
+            We are a dynamic team committed to solving real-world challenges through innovative solutions. With expertise in backend systems, frontend design, and project management, we aim to deliver high-quality products that make a difference.
+        </p>
+        <p>
+            Our project harnesses modern frameworks like Django, ensuring scalability and performance. Join us as we continue to innovate and make an impact in the tech world.
+        </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="team">
+        <div class="team-member">
+            <img src="{% static 'images/mamun.jpg' %}" alt="Abdullah Al-Mamun">
+            <h2>Abdullah Al-Mamun</h2>
+            <h4><i class="bi bi-person-check-fill"></i> Lead Developer</h4>
+            <p>Mamun specializes in backend technologies with a focus on Python and Django, delivering robust and scalable solutions.</p>
+            <div class="social-icons">
+                <a href="https://github.com/Al-Mamuun" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="http://facebook.com/AlMamuunn/" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+        <!-- Team Member 2 -->
+        <div class="team-member">
+            <img src="{% static 'images/nabila.jpg' %}" alt="Team Member 2">
+            <h2>Anika Nawer Nabila</h2>
+            <h4>Frontend Designer</h4>
+            <p>Nabila excels at creating intuitive, beautiful designs that deliver exceptional user experiences. She ensures our interfaces are engaging and accessible.</p>
+            <div class="social-icons">
+                <a href="https://github.com/Nawer-Nabila" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="http://facebook.com/nawer.nabila.7" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+
+      <!-- Team Member 3 -->
+      <div class="team-member">
+        <img src="{% static 'images/kayes.jpg' %}" alt="Team Member 3">
+        <h2>Kayes Ahammed Biplob</h2>
+        <h4>Project Manager</h4>
+        <p>Kayes ensures seamless communication and coordination to deliver projects on time.</p>
+        <div class="social-icons">
+            <a href="https://github.com/KayesBiplob" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="http://facebook.com/kayesahamed.biplob" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+    </div>
+    
+    </div>
+</div>
+
+<div class="cta-banner">
+    <h2>Ready to Collaborate?</h2>
+    <p>Join us on our journey to create something extraordinary. Get in touch today!</p>
+    <a href="{% url 'contact'%}">Contact Us</a>
+</div>
+{% endblock %}

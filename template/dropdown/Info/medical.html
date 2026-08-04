@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Learn More About Medical{% endblock %}
+
+{% block content %}
+  <div class="container" style="padding-top: 100px;">
+    <!-- Heading Section -->
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h1 class="display-4 font-weight-bold">Learn More About Medical Advances</h1>
+        <p class="lead text-muted">Stay informed about the latest advancements in the medical and healthcare industries.</p>
+      </div>
+    </div>
+
+    <!-- Medical Research & Healthcare Innovations Section -->
+    <div class="row">
+      <!-- Medical Research Column -->
+      <div class="col-md-6 mb-4">
+        <h2 class="h3">Medical Research</h2>
+        <p>Explore breakthroughs in medical research, including disease prevention, new treatments, and medical technologies.</p>
+        <!-- Optimized Image -->
+        <div class="image-container">
+          <img src="{% static 'images/medical_research.jpg' %}" alt="Medical Research" class="img-fluid rounded shadow custom-img">
+        </div>
+      </div>
+
+      <!-- Healthcare Innovations Column -->
+      <div class="col-md-6 mb-4">
+        <h2 class="h3">Healthcare Innovations</h2>
+        <p>Learn about the latest innovations in healthcare systems, from telemedicine to personalized medicine.</p>
+        <!-- Optimized Image -->
+        <div class="image-container">
+          <img src="{% static 'images/healthcare_innovation.jpg' %}" alt="Healthcare Innovation" class="img-fluid rounded shadow custom-img">
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Home Button -->
+    <div class="row mt-4">
+      <div class="col-12 text-center">
+        <a href="{% url 'home' %}" class="btn btn-secondary btn-lg">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom CSS to Style the Images -->
+  <style>
+    /* Custom CSS for optimized image size and design */
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      height: 400px; /* Fixed height for all images */
+    }
+
+    .custom-img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain; /* Ensures the image is scaled down to fit the container without cropping */
+      border-radius: 15px; /* Rounded corners for images */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+      transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+    }
+
+    /* Hover effect for images */
+    .custom-img:hover {
+      transform: scale(1.05); /* Slight zoom effect on hover */
+    }
+
+    /* Custom button style */
+    .btn-secondary {
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border-radius: 30px;
+      background-color: #6c757d;
+      color: white;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: #5a6268;
+    }
+  </style>
+{% endblock %}

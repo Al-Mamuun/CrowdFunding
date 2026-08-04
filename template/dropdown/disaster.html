@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Natural Disaster Awareness{% endblock %}
+
+{% block content %}
+
+<style>
+  body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa; /* Light background for a clean look */
+      color: #333; /* Dark text for good contrast */
+  }
+
+  .container {
+      padding-top: 100px;
+      padding-bottom: 50px;
+  }
+
+  .section-header {
+      margin-bottom: 40px; /* Reduced spacing for a more compact header */
+  }
+
+  h1.display-4 {
+      font-size: 3rem; /* Larger font size for the main heading */
+      color: #e74c3c; /* Bold red color for heading */
+      font-weight: bold;
+      text-transform: uppercase; /* More dramatic title style */
+      margin-bottom: 20px; /* Space below the heading */
+  }
+
+  .lead {
+      font-size: 1.3rem;
+      color: #555; /* Darker gray for the lead text */
+      font-style: italic;
+      margin-bottom: 30px; /* Space between the lead paragraph and section content */
+  }
+
+  h2 {
+      font-size: 2rem;
+      color: #e74c3c; /* Bold red for section titles */
+      font-weight: bold;
+      margin-bottom: 20px; /* Spacing between section titles and paragraphs */
+  }
+
+  p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555; /* Darker gray for paragraph text */
+      margin-bottom: 20px; /* Space between paragraphs */
+  }
+
+  .btn-primary {
+      background-color: #e74c3c; /* Bold red for buttons */
+      border: none;
+      font-size: 1.1rem;
+      padding: 12px 25px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 50px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for softer look */
+      transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .btn-primary:hover {
+      background-color: #c0392b; /* Darker red on hover */
+      transform: translateY(-5px); /* Slight lift on hover for an aggressive effect */
+  }
+
+  .row.align-items-center {
+      margin-top: 50px; /* Increased spacing for more emphasis */
+  }
+
+  .info-column {
+      padding: 15px; /* Padding for spacing */
+  }
+
+  .image-column {
+      padding: 15px; /* Padding for spacing */
+  }
+
+  .custom-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Softer shadow for a clean effect */
+      transition: transform 0.3s ease;
+  }
+
+  .custom-img:hover {
+      transform: scale(1.05); /* Slight zoom effect */
+  }
+
+  /* Ensure proper layout on smaller screens */
+  @media (max-width: 768px) {
+      .row {
+          flex-direction: column-reverse; /* Stack image below content on smaller screens */
+      }
+
+      .custom-img {
+          margin-top: 20px;
+      }
+  }
+
+</style>
+
+
+
+<div class="container" style="padding-top: 100px;">
+  <!-- Business Section -->
+  <div class="row section-header text-center">
+    <div class="col-12">
+      <h1 class="display-4">Natural Disaster</h1>
+      <p class="lead">A number of disasters are very common in Bangladesh, impacting lives and communities.</p>
+    </div>
+  </div>
+
+  <!-- Natural Disaster Section -->
+  <div class="row">
+    <div class="col-md-6 info-column">
+      <h2 class="h3 font-weight-bold">Natural Disasters in Bangladesh</h2>
+      <p class="info-text">Natural disasters, such as floods, cyclones, and landslides, frequently occur in Bangladesh, affecting millions of lives each year. Understanding the causes, preparedness, and recovery efforts is crucial for saving lives and reducing damage.</p>
+      <a href="{% url 'disasterInfo' %}" class="btn btn-primary mt-3">Learn More</a>
+    </div>
+    <div class="col-md-6 image-column">
+      <img src="{% static 'images/disaster.jpg' %}" alt="Natural Disaster Image" class="custom-img">
+    </div>
+  </div>
+</div>
+
+{% endblock %}

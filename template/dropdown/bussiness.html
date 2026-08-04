@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Business Services{% endblock %}
+{% block content %}
+
+<style>
+  body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa; /* Light background for a clean look */
+      color: #333; /* Dark text for good contrast */
+  }
+
+  .container {
+      padding-top: 100px;
+      padding-bottom: 50px;
+  }
+
+  .business-header {
+      text-align: center;
+      margin-bottom: 50px;
+  }
+
+  h1.display-4 {
+      font-size: 3rem; /* Larger font size */
+      color: #e74c3c; /* Bold red color for heading */
+      font-weight: bold;
+      text-transform: uppercase; /* More dramatic title style */
+  }
+
+  .lead {
+      font-size: 1.3rem;
+      color: #555; /* Darker gray for the lead text to balance with white background */
+      font-style: italic;
+  }
+
+  .row.align-items-center {
+      margin-top: 40px;
+  }
+
+  .col-md-6 {
+      margin-bottom: 30px;
+  }
+
+  h2.section-title {
+      font-size: 2rem;
+      color: #e74c3c; /* Bold red for section titles */
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-transform: uppercase; /* Consistent style */
+  }
+
+  p.section-description {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555; /* Darker gray for paragraph text */
+  }
+
+  .btn-primary {
+      background-color: #e74c3c; /* Bold red for buttons */
+      border: none;
+      font-size: 1.1rem;
+      padding: 12px 25px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 50px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for softer look */
+      transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .btn-primary:hover {
+      background-color: #c0392b; /* Darker red on hover */
+      transform: translateY(-5px); /* Slight lift on hover for an aggressive effect */
+  }
+
+  img {
+      max-width: 100%;
+      max-height: 350px; /* Increase max height */
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Softer shadow for a clean effect */
+      object-fit: cover; /* Ensures image stays sharp */
+      margin-top: 20px;
+      transition: transform 0.3s ease;
+  }
+
+  img:hover {
+      transform: scale(1.1); /* Aggressive zoom on hover */
+  }
+
+</style>
+
+
+<div class="container">
+  <!-- Business Section -->
+  <div class="business-header">
+    <h1 class="display-4">Business</h1>
+    <p class="lead">Explore opportunities, trends, and strategies in modern business.</p>
+  </div>
+
+  <!-- New Market Section -->
+  <div class="row align-items-center">
+    <div class="col-md-6 mb-4">
+      <h2 class="section-title">New Market</h2>
+      <p class="section-description">Discover emerging markets and innovative business avenues.</p>
+      <a href="{% url 'bussinessInfo' %}" class="btn btn-primary mt-3">Learn More</a>
+    </div>
+    <div class="col-md-6">
+      <img src="{% static 'images/dhaka.jpg' %}" alt="Market Image">
+    </div>
+  </div>
+</div>
+{% endblock %}

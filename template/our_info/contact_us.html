@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<style>
+  body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fc;
+      color: #333;
+      margin-top: 100px;
+  }
+
+  .contact-container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .contact-header {
+      text-align: center;
+      margin-bottom: 30px;
+  }
+
+  .contact-header h1 {
+      font-size: 2.5rem;
+      color: #007bff;
+      font-weight: bold;
+      margin-bottom: 10px;
+  }
+
+  .contact-header p {
+      font-size: 1.2rem;
+      color: #666;
+  }
+
+  .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+  }
+
+  .contact-form .form-group {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .contact-form .form-group label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+  }
+
+  .contact-form input, .contact-form textarea {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: #555;
+      transition: border-color 0.3s;
+  }
+
+  .contact-form input:focus, .contact-form textarea:focus {
+      border-color: #007bff;
+      outline: none;
+  }
+
+  .contact-form textarea {
+      resize: none;
+      min-height: 120px;
+  }
+
+  .contact-form .full-width {
+      grid-column: span 2;
+  }
+
+  .contact-form button {
+      grid-column: span 2;
+      padding: 12px;
+      font-size: 1.1rem;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+  }
+
+  .contact-form button:hover {
+      background-color: #0056b3;
+      transform: scale(1.02);
+  }
+
+  .contact-info {
+      text-align: center;
+      margin-top: 40px;
+  }
+
+  .contact-info h2 {
+      font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 10px;
+  }
+
+  .contact-info p {
+      font-size: 1.1rem;
+      color: #555;
+  }
+
+  .contact-map {
+      margin-top: 40px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-map iframe {
+      width: 100%;
+      height: 350px;
+      border: none;
+  }
+
+  @media screen and (max-width: 768px) {
+      .contact-form {
+          grid-template-columns: 1fr;
+      }
+
+      .contact-form .full-width {
+          grid-column: span 1;
+      }
+
+      .contact-form button {
+          grid-column: span 1;
+      }
+  }
+</style>
+
+<div class="contact-container">
+    <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p>Have questions? Get in touch with us, and we'll respond promptly!</p>
+    </div>
+
+    <form class="contact-form" method="POST" action="{% url 'contact' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group full-width">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter your phone number">
+        </div>
+        <div class="form-group full-width">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <div class="contact-info">
+        <h2>Our Office</h2>
+        <p>Dhanmondi-15, Dhaka-1209</p>
+        <p>Email: support@crowdfund.com | Phone: +88 01845196403</p>
+    </div>
+
+    <div class="contact-map">
+        <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116206.27200546698!2d90.34928522970002!3d23.78088745388368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7b9d0ff9c41%3A0xa3f2178ad8505073!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2s!4v1638380101091!5m2!1sen!2s" 
+    allowfullscreen=""
+    loading="lazy">
+</iframe>
+
+    </div>
+</div>
+{% endblock %}

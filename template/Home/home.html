@@ -1,0 +1,596 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+  body {
+    overflow-y: auto !important;
+  }
+
+  .hero-section {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    background-image: url("{% static 'images/donation.jpeg' %}");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-attachment: fixed; 
+  }
+
+  
+   .stats-section {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+  }
+
+  .stats-section .stat-item {
+    padding: 30px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .stats-section .stat-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .stats-section .stat-item i {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+
+  .stats-section .stat-item h2 {
+    font-size: 2rem;
+    color: #333;
+  }
+
+  .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .overlay-text h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+
+  .overlay-text .donation {
+    padding: 12px;
+    background: silver;
+    opacity: 85% !important;
+    border-radius: 20px;
+    font-size: 1.25rem;
+    margin: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+
+  }
+
+  .donation p {
+    margin-top: 10px;
+    color: black !important;
+    text-align: center;
+    font-weight: bold !important;
+  }
+
+  .btn-gradient {
+    background: linear-gradient(to right, #ff7ce2, #ff8833);
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    text-transform: uppercase;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); 
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: white;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  position: relative;
+  z-index: 10000; 
+}
+
+.donation {
+    padding: 12px;
+    background: silver;
+    opacity: 0.8;
+    border-radius: 20px;
+    font-size: 1.25rem;
+    margin: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+  }
+
+  .donation:hover {
+    transform: scale(1.1); 
+    background-color: #ccc; 
+    opacity: 0.9; 
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+
+.card.bg-danger {
+  background-color: #b2d8b2 !important;
+  color: #000000;
+}
+
+
+.card.bg-warning {
+  background-color: #a8d1f0 !important;
+  color: #000000; 
+}
+.card.bg-danger .card-body,
+.card.bg-warning .card-body {
+  color: #000000;
+}
+  .donation:active {
+    animation: pulse 0.5s;
+  }
+  
+  .btn-gradient:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+footer {
+    background: linear-gradient(45deg, #2f3640, #353b48); 
+    color: #f8f9fa;
+    padding: 40px 0;
+  }
+
+  footer h5 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ff6b81;
+    margin-bottom: 1rem;
+  }
+
+  footer p,
+  footer ul li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ddd;
+  }
+
+  footer a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  footer a:hover {
+    color: #ff6b81; 
+  }
+
+  footer ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  footer ul li {
+    margin-bottom: 0.5rem;
+  }
+
+  footer .btn {
+    color: #333;
+    background-color: #ff6b81;
+    border: none;
+    transition: all 0.3s ease;
+  }
+
+  footer .btn:hover {
+    color: #fff;
+    background-color: #e36c7a;
+  }
+
+.about-us-container {
+      max-width: 1200px;
+      margin: 50px auto;
+      text-align: center;
+      padding: 20px;
+  }
+
+  .about-us-header h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #444;
+      margin-bottom: 10px;
+  }
+
+  .about-us-header p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 40px;
+  }
+
+  .team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; 
+    padding: 20px;
+}
+
+.team-member {
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border-radius: 15px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: calc(25% - 20px); 
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #007bff;
+    margin-top: -0px;
+}
+
+.team-member h2 {
+    font-size: 1.3rem;
+    margin: 15px 0 5px;
+    color: #007bff;
+}
+
+.team-member h4 {
+    font-size: 1.1rem;
+    margin: 5px 0;
+    color: #555;
+    font-weight: 500;
+}
+
+.team-member p {
+    padding: 0 20px 20px;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.team-member .social-icons {
+    margin: 10px 0 20px;
+}
+
+.team-member .social-icons a {
+    color: #007bff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.team-member .social-icons a:hover {
+    color: #0056b3;
+}
+
+@media screen and (max-width: 768px) {
+    .team {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-member {
+        width: 90%;
+    }
+}
+
+</style>
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="hero-image">
+    <div class="overlay-text">
+      <h1>Flood in Bangladesh</h1>
+      <div class="donation" id="donateBtn">Click to donate now</div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="donationModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Donate to Flood Relief</h3>
+    <form action="{% url 'thank_you' %}" method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-gradient">Donate Now</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- Stats Section -->
+<div class="stats-section py-5 bg-light">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-4 mb-4">
+        <div class="stat-item p-4 bg-white rounded shadow-sm h-100">
+          <i class="bi bi-people display-5 text-primary"></i>
+          <h2 class="display-5 text-primary mt-3">{{ total_donors }}+</h2>
+          <p class="fs-5 fw-bold">Donors</p>
+          <span class="text-muted">Everyone is welcome to donate.</span>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="stat-item p-4 bg-white rounded shadow-sm h-100">
+          <i class="bi bi-box-seam display-5 text-primary"></i>
+          <h2 class="display-5 text-primary mt-3">{{ total_projects }}+</h2>
+          <p class="fs-5 fw-bold">Projects</p>
+          <span class="text-muted">Various projects waiting for your help.</span>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="stat-item p-4 bg-white rounded shadow-sm h-100">
+          <i class="bi bi-star display-5 text-primary"></i>
+          <h2 class="display-5 text-primary mt-3">{{ success_rating }}/5</h2>
+          <p class="fs-5 fw-bold">Success Rating</p>
+          <span class="text-muted">We're committed to making a difference.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Featured Projects Section -->
+<div class="container my-5">
+  <h3 class="text-center mb-4"> <strong> Our Projects</strong></h3>
+  <div class="row g-4">
+    <!-- Card 2 -->
+    <div class="col-md-6 col-lg-6">
+      <div class="card bg-danger text-white p-4 h-100">
+        <div class="card-body">
+          <h4 class="card-title">Latest Project</h4>
+          <ul class="list-unstyled">
+            <li class="d-flex align-items-center mb-2">
+              <span class="me-2">&#x1F4B0;</span>
+             
+              Donate Supplies
+            </li>
+            <li class="d-flex align-items-center mb-2">
+              <span class="me-2">&#x1F91D;</span>
+             
+              Volunteer for Events
+            </li>
+            <li class="d-flex align-items-center mb-2">
+              <span class="me-2">&#x1F9D1;&#x200D;&#x1F393;</span>
+              
+              Mentorship Programs
+            </li>
+            <li class="d-flex align-items-center mb-2">
+              <span class="me-2">&#x1F6E2;</span>
+             
+              Community Clean-up
+            </li>
+          </ul>
+          <a href="{% url 'project_list' %}" class="btn btn-light mt-3">See all</a>
+        </div>
+      </div>
+    </div>
+    <!-- Card 1 -->
+    <div class="col-md-6 col-lg-6">
+      <div class="card bg-warning text-white p-4 h-100">
+        <div class="card-body">
+          <h4 class="card-title">Featured Projects</h4>
+          <ul class="list-unstyled">
+            <li class="d-flex align-items-center mb-2">
+              <span class="me-2">&#x1F331;</span>
+              
+              Plant a Tree
+            </li>
+            <li class="d-flex align-items-center mb-2">
+              <span class="me-2">&#x1F431;</span>
+              
+              Support Stray Animals
+            </li>
+            <li class="d-flex align-items-center mb-2">
+              <span class="me-2">&#x1F489;</span>
+              
+              Cancer Patient Support
+            </li>
+            <li class="d-flex align-items-center mb-2">
+              <span class="me-2">&#x1F3E0;</span>
+             
+              Build a House
+            </li>
+          </ul>
+          <a href="{% url 'feature_projects' %}" class="btn btn-light mt-3">See all</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Create Your Own Project Button -->
+<div class="text-center my-5">
+  <a href="{% url 'upload' %}" class="btn btn-gradient">Create your own Project</a>
+</div>
+
+
+
+<div class="about-us-container">
+  <div class="about-us-header">
+      <h1>Our Team</h1>
+      <p>We are a team of passionate individuals striving to make a difference with every project we undertake.</p>
+  </div>
+
+  <div class="team">
+      <!-- Team Member 1 -->
+      <div class="team-member">
+          <img src="{% static 'images/mamun.jpg' %}" alt="Team Member 1">
+          <h2>Abdullah Al-Mamun</h2>
+          <h4><i class="bi bi-person-check-fill"></i> Lead Developer</h4>
+          <p>Mamun is a backend specialist with expertise in Python and Django. He thrives on tackling challenging problems.</p>
+          <div class="social-icons">
+              <a href="https://github.com/Al-Mamuun" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="http://facebook.com/AlMamuunn/" target="_blank"><i class="fab fa-facebook"></i></a>
+          </div>
+      </div>
+
+      <!-- Team Member 2 -->
+      <div class="team-member">
+          <img src="{% static 'images/nabila.jpg' %}" alt="Team Member 2">
+          <h2>Anika Nawer Nabila</h2>
+          <h4>Frontend Designer</h4>
+          <p>Nabila excels at creating beautiful and user-friendly designs, ensuring an exceptional user experience.</p>
+          <div class="social-icons">
+              <a href="https://github.com/Nawer-Nabila" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="http://facebook.com/nawer.nabila.7" target="_blank"><i class="fab fa-facebook"></i></a>
+          </div>
+      </div>
+
+      <!-- Team Member 3 -->
+      <div class="team-member">
+          <img src="{% static 'images/kayes.jpg' %}" alt="Team Member 3">
+          <h2>Kayes Ahammed Biplob</h2>
+          <h4>Project Manager</h4>
+          <p>Kayes ensures seamless communication and coordination to deliver projects on time.</p>
+          <div class="social-icons">
+              <a href="https://github.com/KayesBiplob" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="http://facebook.com/kayesahamed.biplob" target="_blank"><i class="fab fa-facebook"></i></a>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>About Us</h5>
+        <p>We are a team dedicated to raising funds for people who need assistance after the devastating floods in Bangladesh.</p>
+        <a href="{% url 'about'%}" class="btn" style="background: linear-gradient(to right, #ff7e5f, #feb47b); color: white;"">Learn More</a>
+      </div>
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul>
+                  <li><a href="{% url 'home' %}">Home</a></li>
+                  <li><a href="{% url 'education' %}">Education</a></li>
+                  <li><a href="{% url 'medical' %}">Medical</a></li>
+                  <li><a href="{% url 'business' %}">Business</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact</h5>
+        <ul>
+          <li>Email: <a href="mailto:almamun112020@gmail.com">IntelligenceHub@gmail.com</a></li>
+          <li>Phone: <a href="tel:+8801845196403">+88 01845196403</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="text-center mb-0">© 2024 Crowdfunding Platform. All Rights Reserved. Made 
+    <span class="text-danger">&hearts;</span> by the Team Intelligence Hub</p>
+</footer>
+
+<script>
+  var modal = document.getElementById("donationModal");
+  var btn = document.getElementById("donateBtn");
+  var closeBtn = document.querySelector(".close");
+
+  btn.onclick = function () {
+    modal.style.display = "block";
+  };
+
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+    color: #333;
+    text-align: center;
+    margin-top: 50px;
+    overflow-y: auto;
+  }
+
+  .margin {
+    margin-top: 120px;
+  }
+
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+
+  .btn-success {
+    background-color: #28a745;
+    border: none;
+  }
+
+  .btn-success:hover {
+    background-color: #218838;
+  }
+
+  .text-primary {
+    color: #007bff !important;
+    text-decoration: none;
+  }
+
+  .text-primary:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="margin">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow-sm">
+          <div class="card-header text-white text-center" style="background-color: #d4edda;"> 
+            <h2 class="mb-0" style="color: #155724;">Update Your Profile</h2> 
+          </div>
+          
+          <div class="card-body">
+
+            <!-- Display messages -->
+            {% if messages %}
+              <div class="alert alert-info">
+                {% for message in messages %}
+                  <p>{{ message }}</p>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+            <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <div class="text-center">
+                <button type="submit" class="btn btn-success px-4 py-2">Update Profile</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <p class="text-muted">Want to go back? 
+            <a href="{% url 'profile_dashboard' %}" class="text-primary fw-bold">Return to Dashboard</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

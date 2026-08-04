@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    
+body {
+    background: linear-gradient(45deg, #f3f4f6, #e6f7f1);
+    font-family: 'Arial', sans-serif;
+    margin-top: 100px;
+}
+
+
+.container {
+    margin-top: 100px; 
+}
+
+
+h1, h2 {
+    color: #2c3e50;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+form input[type="text"] {
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    padding: 12px;
+    transition: all 0.3s ease-in-out;
+}
+
+form input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+.card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+    background-color: #ffffff;
+}
+
+.card-title {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+}
+
+.card-text small {
+    color: #16a085;
+}
+
+.card-body a {
+    background-color: #2ecc71;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.card-body a:hover {
+    background-color: #27ae60;
+}
+
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #0056b3;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        margin-top: 50px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+</style>
+<main class="container my-5">
+    <div class="text-center">
+        <h1 class="mb-4">Search Projects</h1>
+        <p class="lead">Find crowdfunding projects that interest you!</p>
+
+
+
+    <!-- Search Results -->
+    {% if projects %}
+    <h2 class="text-center mb-4">Search Results</h2>
+    <div class="row">
+        {% for project in projects %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-light">
+                <img src="{{ project.image.url }}" alt="{{ project.title }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.title }}</h5>
+                    <p class="card-text">{{ project.description|truncatewords:20 }}</p>
+                    <p class="card-text">
+                        <small class="text-muted">Raised: {{ project.collectedAmount }} / Goal: {{ project.goalAmount }}</small>
+                    </p>
+                    <a href="{% url 'details' project.id %}" class="btn btn-outline-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% elif query %}
+        <p class="text-center">No projects found matching "{{ query }}".</p>
+    {% endif %}
+
+    <footer class="text-center mt-5">
+        <a href="{% url 'home' %}" class="btn btn-success">Back to Home</a>
+    </footer>
+</main>
+{% endblock %}

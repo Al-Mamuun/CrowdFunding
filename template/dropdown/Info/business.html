@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Learn More{% endblock %}
+
+{% block content %}
+<style>
+  body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+      color: #343a40;
+  }
+
+  .container {
+      padding-top: 100px;
+      padding-bottom: 50px;
+  }
+
+  h1.display-4 {
+      font-size: 2.5rem;
+      color: #007bff;
+  }
+
+  .lead {
+      font-size: 1.2rem;
+      color: #6c757d;
+  }
+
+  h2 {
+      font-size: 1.8rem;
+      color: #343a40;
+      margin-bottom: 20px;
+  }
+
+  p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #495057;
+  }
+
+  .btn-secondary {
+      background-color: #6c757d;
+      border: none;
+      font-size: 1rem;
+      padding: 10px 20px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+      background-color: #5a6268;
+      transform: translateY(-2px);
+  }
+
+  img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+  }
+
+  .text-center a {
+      text-decoration: none;
+  }
+</style>
+
+<div class="container">
+  <!-- Page Header -->
+  <div class="row">
+    <div class="col-12 text-center mb-5">
+      <h1 class="display-4">Learn More About Emerging Markets</h1>
+      <p class="lead">Delve deeper into the world of new business opportunities, emerging trends, and innovative markets.</p>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <h2>Opportunities</h2>
+      <p>Explore new market trends and the business opportunities they offer in various industries.</p>
+      <img src="{% static 'images/opportunity.jpeg' %}" alt="Opportunity Image">
+    </div>
+    <div class="col-md-6 mb-4">
+      <h2>Innovation</h2>
+      <p>Discover the innovative strategies businesses are adopting to thrive in evolving markets.</p>
+      <img src="{% static 'images/innovation.jpg' %}" alt="Innovation Image">
+    </div>
+  </div>
+
+  <!-- Back to Home Button -->
+  <div class="row mt-5">
+    <div class="col-12 text-center">
+      <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

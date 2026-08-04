@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Education{% endblock %}
+
+{% block content %}
+<style>
+  body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa; /* Light background for a clean look */
+      color: #333; /* Dark text for good contrast */
+  }
+
+  .container {
+      padding-top: 100px;
+      padding-bottom: 50px;
+  }
+
+  h1.display-4 {
+      font-size: 3rem; /* Larger font size */
+      color: #e74c3c; /* Bold red color for heading */
+      font-weight: bold;
+      text-transform: uppercase; /* More dramatic title style */
+  }
+
+  .lead {
+      font-size: 1.3rem;
+      color: #555; /* Darker gray for the lead text to balance with white background */
+      font-style: italic;
+  }
+
+  h2 {
+      font-size: 2rem;
+      color: #e74c3c; /* Bold red for section titles */
+      font-weight: bold;
+      margin-bottom: 20px;
+  }
+
+  p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555; /* Darker gray for paragraph text */
+  }
+
+  .btn-primary {
+      background-color: #e74c3c; /* Bold red for buttons */
+      border: none;
+      font-size: 1.1rem;
+      padding: 12px 25px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 50px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for softer look */
+      transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .btn-primary:hover {
+      background-color: #c0392b; /* Darker red on hover */
+      transform: translateY(-5px); /* Slight lift on hover for an aggressive effect */
+  }
+
+  img {
+      max-width: 100%;
+      max-height: 350px; /* Increase max height */
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Softer shadow for a clean effect */
+      object-fit: cover; /* Ensures image stays sharp */
+      margin-top: 30px;
+      transition: transform 0.3s ease;
+  }
+
+  img:hover {
+      transform: scale(1.1); /* Aggressive zoom on hover */
+  }
+
+  .row.align-items-center {
+      margin-top: 50px; /* Increased spacing for more emphasis */
+  }
+</style>
+
+
+<div class="container">
+  <!-- Education Header -->
+  <div class="row">
+    <div class="col-12 text-center mb-5">
+      <h1 class="display-4">Education</h1>
+      <p class="lead">Empowering the future with knowledge and skills for global success.</p>
+    </div>
+  </div>
+
+  <!-- University of Asia Pacific Section -->
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h2>University of Asia Pacific</h2>
+      <p>The University of Asia Pacific offers a world-class education, fostering innovation and leadership in students. Join the pioneers.</p>
+      <a href="{% url 'educationInfo' %}" class="btn btn-primary mt-3">Learn More</a>
+    </div>
+    <div class="col-md-6 text-center">
+      <img src="{% static 'images/UAP.jpg' %}" alt="University of Asia Pacific" class="img-fluid">
+    </div>
+  </div>
+</div>
+
+{% endblock %}

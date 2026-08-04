@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Project{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background:  #ffffff
+            color: #333;
+            text-align: center;
+            overflow-y: auto;
+            margin-top: 100px;
+        }
+
+        .update-project-container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        h2 {
+            color: #5c6bc0; 
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .form-group button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #218838; 
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+
+        .back-link,
+        .update-button {
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            display: inline-block;
+            width: 48%;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        .back-link:hover {
+            background-color: #e67e22;
+        }
+
+        .update-button {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .update-button:hover {
+            background-color: #0056b3; 
+        }
+
+        .form-errors {
+            color: #e74c3c; 
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <div class="update-project-container">
+        <h2>Update Project</h2>
+
+        
+        {% if form.errors %}
+            <div class="form-errors">
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            
+            <div class="button-container">
+                <button type="submit" class="update-button">Update Project</button>
+                <a href="{% url 'project_list' %}" class="back-link">← Back to Project List</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
